@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input,
+        span {
+            margin: 0 5px;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        let number1 = document.createElement('input')
+        number1.type = 'number'
+        let number2 = document.createElement('input')
+        number1.type = 'number'
+
+        let minusTextNode = document.createElement('span')
+        minusTextNode.innerHTML = '-'
+
+        let equalTextNode = document.createElement('span')
+        equalTextNode.innerHTML = '='
+
+        let result = document.createElement('span')
+        result.innerHTML = 'result'
+
+        let num1 = ''
+        let num2 = ''
+
+        const onResult = () => {
+            let sum = Number(num1) - Number(num2)
+            result.innerHTML = sum
+        }
+
+        const onChangeNum1 = (e) => {
+            num1 = e.target.value
+        }
+
+        const onChangeNum2 = (e) => {
+            num2 = e.target.value
+        }
+
+        number1.addEventListener('input', onChangeNum1)
+        number2.addEventListener('input', onChangeNum2)
+
+        equalTextNode.addEventListener('click', onResult)
+
+        document.body.append(number1)
+        document.body.append(minusTextNode)
+        document.body.append(number2)
+        document.body.append(equalTextNode)
+        document.body.append(result)
+    </script>
+</body>
+</html>
